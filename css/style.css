@@ -1,1 +1,725 @@
+/* ==============================
+   Isomi's Life - style.css
+   デザインの基本設定
+   ============================== */
 
+:root {
+  --color-base: #fffaf7;
+  --color-cream: #f8f0eb;
+  --color-pink: #d58e96;
+  --color-pink-light: #f5e5e5;
+  --color-green: #849780;
+  --color-green-light: #f0f4ed;
+  --color-text: #514b48;
+  --color-muted: #8b817b;
+  --color-white: #ffffff;
+  --font-body: "Noto Serif JP", serif;
+  --font-display: "Cormorant Garamond", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-base);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  min-height: 76px;
+  padding: 12px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  background: rgba(255, 250, 247, 0.97);
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid rgba(213, 142, 150, 0.18);
+}
+
+.logo {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1;
+  color: #6b625d;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 34px);
+}
+
+.main-nav a {
+  font-family: var(--font-display);
+  font-size: 17px;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.text-link:hover {
+  color: var(--color-pink);
+}
+
+.header-note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid #e8d4d1;
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 20px;
+}
+
+.hero {
+  min-height: 440px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2000&q=90");
+  background-size: cover;
+  background-position: center 54%;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 250, 247, 0.91) 0%, rgba(255, 250, 247, 0.75) 38%, rgba(255, 250, 247, 0.05) 78%);
+}
+
+.hero-content {
+  position: relative;
+  width: min(570px, 58%);
+  margin-left: 11%;
+  padding: 60px 0;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--color-pink);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+h1, h2, h3, p {
+  overflow-wrap: anywhere;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(29px, 3.1vw, 44px);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.08em;
+}
+
+.hero-copy {
+  margin: 0 0 24px;
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+.button {
+  min-height: 44px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 25px;
+  border-radius: 999px;
+  font-size: 12px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--color-pink);
+  color: var(--color-white);
+}
+
+.button-primary:hover {
+  background: #c87e88;
+}
+
+.hero-script {
+  position: absolute;
+  top: 18%;
+  left: 53%;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 36px);
+  font-style: italic;
+  color: #6f8178;
+  transform: rotate(-7deg);
+}
+
+.hero-script span {
+  color: var(--color-pink);
+}
+
+.hero-caption {
+  position: absolute;
+  right: 4%;
+  bottom: 20px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #fff;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.section-wrap {
+  width: min(1180px, 88%);
+  margin: 0 auto;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 0.9fr 1.15fr 1.1fr;
+  gap: 34px;
+  align-items: center;
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.photo-frame {
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.about-photo img {
+  height: 270px;
+}
+
+.section-script {
+  margin: 0 0 2px;
+  color: var(--color-pink);
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.about-copy h2,
+.health-copy h2,
+.section-intro h2,
+.contact-inner h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.about-copy p:not(.section-script),
+.health-copy p:not(.section-script) {
+  font-size: 12px;
+  line-height: 2.15;
+}
+
+.text-link {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+  padding: 7px 16px;
+  border: 1px solid var(--color-pink);
+  border-radius: 999px;
+  color: var(--color-pink);
+  font-size: 11px;
+  transition: background 0.2s ease;
+}
+
+.text-link:hover {
+  background: var(--color-pink-light);
+}
+
+.profile-card {
+  min-height: 270px;
+  position: relative;
+  padding: 26px 28px;
+  background: linear-gradient(135deg, #fbf1ee, #fff8f5);
+  border: 1px solid #f3e5e1;
+}
+
+.profile-title {
+  margin: 0 0 14px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 23px;
+}
+
+.profile-card dl {
+  margin: 0;
+}
+
+.profile-card dl div {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(213, 142, 150, 0.16);
+  font-size: 11px;
+}
+
+.profile-card dl div:last-child {
+  border-bottom: 0;
+}
+
+.profile-card dt {
+  color: var(--color-muted);
+}
+
+.profile-card dd {
+  margin: 0;
+}
+
+.flower-mark {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  color: #dcb7b1;
+  font-size: 42px;
+  opacity: 0.8;
+}
+
+.profile-note {
+  margin: 10px 0 0;
+  text-align: right;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-green);
+  font-size: 14px;
+}
+
+.life-section {
+  padding: 52px 0 56px;
+  background: var(--color-green-light);
+}
+
+.life-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 2.1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.green-script {
+  color: var(--color-green);
+}
+
+.section-intro h2 {
+  margin-bottom: 18px;
+}
+
+.section-intro > p:last-child {
+  max-width: 360px;
+  color: #6c7067;
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.value-item {
+  text-align: center;
+}
+
+.value-item img {
+  width: clamp(86px, 9vw, 125px);
+  aspect-ratio: 1;
+  margin: 0 auto 13px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.value-item h3,
+.wellness-grid h3 {
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.value-item p,
+.wellness-grid p {
+  margin: 0;
+  color: #77746e;
+  font-size: 10px;
+  line-height: 1.9;
+}
+
+.health-section {
+  display: grid;
+  grid-template-columns: 0.95fr 1.1fr 1.65fr;
+  gap: 34px;
+  align-items: center;
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.health-photo img {
+  height: 205px;
+}
+
+.health-copy .section-script {
+  font-size: 36px;
+}
+
+.health-copy h2 {
+  margin-bottom: 12px;
+}
+
+.health-copy p {
+  margin-top: 0;
+}
+
+.health-copy .small-note {
+  color: var(--color-muted);
+  font-size: 10px !important;
+}
+
+.wellness-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  text-align: center;
+}
+
+.wellness-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: var(--color-pink-light);
+  color: var(--color-pink);
+  font-size: 25px;
+}
+
+.contact-section {
+  min-height: 245px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 45px 7%;
+  background:
+    linear-gradient(90deg, rgba(255, 250, 247, 0.94), rgba(255, 250, 247, 0.8)),
+    url("https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1800&q=85") center 55% / cover;
+  text-align: center;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-inner .section-script {
+  font-size: 34px;
+  color: #a88b83;
+}
+
+.contact-inner h2 {
+  margin: 5px 0 10px;
+}
+
+.contact-inner > p:not(.section-script) {
+  font-size: 12px;
+}
+
+.contact-inner .button {
+  margin-top: 7px;
+}
+
+.contact-hint {
+  color: var(--color-muted);
+  font-size: 10px !important;
+}
+
+.contact-decoration {
+  position: absolute;
+  left: 5%;
+  bottom: -22px;
+  color: #b7c6b1;
+  font-size: 150px;
+  opacity: 0.6;
+}
+
+.contact-script {
+  position: absolute;
+  right: 6%;
+  bottom: 24px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  color: #8d766e;
+  transform: rotate(-7deg);
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 6%;
+  background: #b9a49b;
+  color: #fffaf7;
+  font-size: 10px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid #7e9580;
+  outline-offset: 3px;
+}
+
+/* タブレット */
+@media (max-width: 1050px) {
+  .header-note {
+    display: none;
+  }
+
+  .about {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .profile-card {
+    grid-column: 1 / -1;
+  }
+
+  .life-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .section-intro > p:last-child {
+    max-width: 650px;
+  }
+
+  .health-section {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .wellness-grid {
+    grid-column: 1 / -1;
+    padding-top: 12px;
+  }
+}
+
+/* スマートフォン */
+@media (max-width: 700px) {
+  body {
+    font-size: 13px;
+  }
+
+  .site-header {
+    min-height: 68px;
+    padding: 10px 5%;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 29px;
+  }
+
+  .menu-toggle {
+    display: inline-grid;
+    place-items: center;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 6px 0 10px;
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 10px 4px;
+    border-top: 1px solid #f0e3df;
+    font-size: 17px;
+  }
+
+  .hero {
+    min-height: 500px;
+    background-position: 62% center;
+  }
+
+  .hero-shade {
+    background: linear-gradient(90deg, rgba(255, 250, 247, 0.94), rgba(255, 250, 247, 0.64) 72%, rgba(255, 250, 247, 0.22));
+  }
+
+  .hero-content {
+    width: 88%;
+    margin-left: 6%;
+    padding: 50px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .hero-copy {
+    font-size: 12px;
+  }
+
+  .hero-script {
+    top: auto;
+    bottom: 25px;
+    left: auto;
+    right: 7%;
+    font-size: 25px;
+  }
+
+  .hero-caption {
+    display: none;
+  }
+
+  .section-wrap {
+    width: 88%;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .about-photo img {
+    height: 230px;
+  }
+
+  .section-script {
+    font-size: 34px;
+  }
+
+  .profile-card {
+    grid-column: auto;
+    padding: 22px;
+  }
+
+  .life-section {
+    padding: 42px 0;
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 16px;
+  }
+
+  .value-item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .value-item img {
+    width: 112px;
+  }
+
+  .health-section {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .health-photo img {
+    height: 220px;
+  }
+
+  .wellness-grid {
+    grid-column: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 14px;
+  }
+
+  .contact-section {
+    padding: 40px 6%;
+  }
+
+  .contact-script {
+    display: none;
+  }
+
+  .contact-decoration {
+    left: -20px;
+    font-size: 100px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 16px 5%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
